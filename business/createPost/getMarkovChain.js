@@ -12,7 +12,7 @@ export default (texts) => {
         markov.learn(text)
       })
       while(!found) {
-        const sentence = markov.generate()
+        const sentence = decodeURI(markov.generate())
         if(
           !(sentence.indexOf('http') > -1 || sentence.indexOf('://') > -1)
           &&

@@ -31,7 +31,9 @@ const getSingleTweetList = (client, props, last) => {
         const data = {
           tweets: tweets.map(tweet => tweet.text)
         }
-        if(tweets[tweets.length - 1]) {
+        if(tweets[tweets.length - 1] && tweets.length !== 1) {
+          // for new accounts twitter api
+          // will coninuously send one tweet back
           data.last = tweets[tweets.length - 1].id
         }
         resolve(data)
